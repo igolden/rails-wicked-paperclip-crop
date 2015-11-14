@@ -10,6 +10,7 @@ gem 'jquery-rails'
 
 gem 'paperclip', '~> 4.3'
 gem 'papercrop'
+gem 'wicked'
 
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'

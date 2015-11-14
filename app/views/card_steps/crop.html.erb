@@ -1,0 +1,6 @@
+Crop
+<%= form_for @card, url: wizard_path do |f| %>
+  <%= f.cropbox :avatar, :width => 500 %>
+  <%= f.crop_preview :avatar, :width => 150 %>
+  <%= f.submit "Continue" %>
+<% end %>

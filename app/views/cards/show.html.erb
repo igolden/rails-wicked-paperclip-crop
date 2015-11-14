@@ -9,7 +9,7 @@
   <strong>Age:</strong>
   <%= @card.age %>
 </p>
-<%= image_tag @card.avatar.url(:medium) %>
+<%= image_tag @card.avatar.url(:thumb) %>
 
 <%= link_to 'Edit', edit_card_path(@card) %> |
 <%= link_to 'Back', cards_path %>

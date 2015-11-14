@@ -1,0 +1,6 @@
+Upload
+<%= form_for @card, url: wizard_path do |f| %>
+  <%= f.file_field :avatar %>
+  <%= f.submit 'Save' %>
+<% end %>
+

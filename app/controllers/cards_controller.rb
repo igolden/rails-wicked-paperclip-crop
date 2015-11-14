@@ -21,7 +21,7 @@ class CardsController < ApplicationController
   def edit
   end
   def crop
-    @card = Card.find(params[:id])
+    redirect_to card_steps_path
   end
 
   # POST /cards
@@ -32,7 +32,7 @@ class CardsController < ApplicationController
     respond_to do |format|
       if @card.save
         format.html {
-        redirect_to action: 'crop', id: @card
+        redirect_to card_card_steps_path(:card_id => @card.id) 
         }
       else
         format.html { render :new }
@@ -47,7 +47,9 @@ class CardsController < ApplicationController
   def update
     respond_to do |format|
       if @card.update(card_params)
-        format.html { redirect_to @card, notice: 'Card was successfully updated.' }
+        format.html { 
+          redirect_to card_card_steps_url(:card_id => @card.id)
+        }
         format.json { render :show, status: :ok, location: @card }
       else
         format.html { render :edit }
