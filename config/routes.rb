@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :cards
+  resources :cards 
+  get '/cards/:id/crop', to: 'cards#crop'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

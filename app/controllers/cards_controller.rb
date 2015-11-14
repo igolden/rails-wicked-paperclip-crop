@@ -20,6 +20,9 @@ class CardsController < ApplicationController
   # GET /cards/1/edit
   def edit
   end
+  def crop
+    @card = Card.find(params[:id])
+  end
 
   # POST /cards
   # POST /cards.json
@@ -28,14 +31,16 @@ class CardsController < ApplicationController
 
     respond_to do |format|
       if @card.save
-        format.html { redirect_to @card, notice: 'Card was successfully created.' }
-        format.json { render :show, status: :created, location: @card }
+        format.html {
+        redirect_to action: 'crop', id: @card
+        }
       else
         format.html { render :new }
         format.json { render json: @card.errors, status: :unprocessable_entity }
       end
     end
   end
+
 
   # PATCH/PUT /cards/1
   # PATCH/PUT /cards/1.json
@@ -69,6 +74,6 @@ class CardsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def card_params
-      params.require(:card).permit(:name, :age)
+      params.require(:card).permit(:name, :age, :avatar, :avatar_original_w, :avatar_original_h, :avatar_box_w, :avatar_aspect, :avatar_crop_x, :avatar_crop_y, :avatar_crop_w, :avatar_crop_h)
     end
 end
